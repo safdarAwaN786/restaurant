@@ -65,7 +65,7 @@ export default function Menu() {
 
         {/* <!-- End Row --> */}
         {/* <!-- Start Row --> */}
-        {menu && (
+        {menu ? (
           <div className=" w-100 d-flex flex-col gap-2 border  p-2 border-circular">
             <div style={{ gap: '20px' }} className="w-100 d-flex justify-content-center align-items-center flex-row">
               <div onClick={() => setDuration('day')} className={`p-2 text-center dayWeek-option ${duration === 'day' ? "dayWeek-selected" : ''} border-circular`}>
@@ -103,14 +103,14 @@ export default function Menu() {
                         }
                       </div>
                       {openMenu === index && (
-  <ul className="bg-lightorange p-3 border-circular" style={{ paddingLeft: '20px', marginBottom: '15px' }}>
-    {foodInfo.foods?.map((food, foodIndex) => (
-      <li key={foodIndex} style={{ fontSize: '16px' }} 
-          dangerouslySetInnerHTML={{ __html: `○ ${food}` }} // Using dangerouslySetInnerHTML
-      />
-    ))}
-  </ul>
-)}
+                        <ul className="bg-lightorange p-3 border-circular" style={{ paddingLeft: '20px', marginBottom: '15px' }}>
+                          {foodInfo.foods?.map((food, foodIndex) => (
+                            <li key={foodIndex} style={{ fontSize: '16px' }}
+                              dangerouslySetInnerHTML={{ __html: `○ ${food}` }} // Using dangerouslySetInnerHTML
+                            />
+                          ))}
+                        </ul>
+                      )}
                     </>
                   ))}
                 </div>
@@ -142,14 +142,14 @@ export default function Menu() {
                         }
                       </div>
                       {openMenu === index && (
-  <ul className="bg-lightorange p-3 border-circular" style={{ paddingLeft: '20px', marginBottom: '15px' }}>
-    {foodInfo.foods?.map((food, foodIndex) => (
-      <li key={foodIndex} style={{ fontSize: '16px' }} 
-          dangerouslySetInnerHTML={{ __html: `○ ${food}` }} // Using dangerouslySetInnerHTML
-      />
-    ))}
-  </ul>
-)}
+                        <ul className="bg-lightorange p-3 border-circular" style={{ paddingLeft: '20px', marginBottom: '15px' }}>
+                          {foodInfo.foods?.map((food, foodIndex) => (
+                            <li key={foodIndex} style={{ fontSize: '16px' }}
+                              dangerouslySetInnerHTML={{ __html: `○ ${food}` }} // Using dangerouslySetInnerHTML
+                            />
+                          ))}
+                        </ul>
+                      )}
                     </>
                   ))}
                 </div >
@@ -157,7 +157,7 @@ export default function Menu() {
             )}
 
           </div>
-        )}
+        ) : (<p className="text text-center" style={{ color : 'orange'}}> Loading...</p>)}
 
       </div>
       {/* <!-- End Row --> */}
